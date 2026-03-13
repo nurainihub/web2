@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+
+<h2>Buatlah tampilan dibawah ini</h2>
+
+<form method="post">
+    <table>
+        <tr>
+            <td><b>Nilai I</b></td>
+            <td></td>
+            <td><b>Nilai II</b></td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="number" name="nilai1" required>
+            </td>
+
+            <td>
+                <select name="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value=""></option>
+                    <option value="/">/</option>
+                </select>
+            </td>
+
+            <td>
+                <input type="number" name="nilai2" required>
+            </td>
+
+            <td>
+                <input type="submit" name="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br>
+
+<?php
+
+if(isset($_POST['submit']))
+{
+    $nilai1 = $_POST['nilai1'];
+    $nilai2 = $_POST['nilai2'];
+    $operator = $_POST['operator'];
+    $hasil = 0;
+
+    if($operator == "+"){
+        $hasil = $nilai1 + $nilai2;
+    }
+    elseif($operator == "-"){
+        $hasil = $nilai1 - $nilai2;
+    }
+    elseif($operator == "*"){
+        $hasil = $nilai1 * $nilai2;
+    }
+    elseif($operator == "/"){
+        $hasil = $nilai1 / $nilai2;
+    }
+
+    echo "<h3>Hasil : $hasil</h3>";
+}
+
+?>
+
+</body>
+</html>
